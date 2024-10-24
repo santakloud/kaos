@@ -1,4 +1,4 @@
-name: Schema Generator
+name: Schema
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PACKAGE_TOKEN }} # Cambia a PACKAGE_TOKEN
         id: checkout_output
 
       - name: Configurar Node.js
