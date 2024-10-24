@@ -139,3 +139,13 @@
 - **Message**: Merge pull request #16 from santakloud/main
 - **Files Changed**:
 ---------------------------------
+## Version 0.2.2
+- **Branch**: refs/heads/feature
+- **Commit**: 3b15898f20f51a00184d972b8d1e43fe13777d6b
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 15:47:38 UTC 2024
+- **Message**: Fix: añadimos resultados de las pruebas
+- **Files Changed**:
+  - README.md
+  - version.txt
+---------------------------------
