@@ -1,0 +1,120 @@
+name: Markdown Linting Action
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+
+jobs:
+  markdownLint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set Team Name
+        id: set-branch-name
+        run: |
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
+            CLEAN_BRANCH_NAME=${BRANCH_NAME#feature/}
+            echo "CLEAN_BRANCH_NAME=$CLEAN_BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Identify User of the Team
+        id: identify-user
+        run: |
+            USER_NAME=$(git log -1 --pretty=format:'%an')
+            echo "USER_NAME=$USER_NAME" >> $GITHUB_ENV
+    
+      - name: Display User Name and Team Name
+        run: echo "Push has been performed by the user $USER_NAME of de Team $CLEAN_BRANCH_NAME"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli2
+        run: |
+          npm install -g markdownlint-cli2
+
+      - name: Create markdownlint config
+        run: |
+          echo '{ "MD013": false }' > .markdownlint.json
+
+      - name: Lint Markdown for all Docs
+        run: |
+          echo "Starting markdown linting process for docs..."
+          find ./docs -name '*.md' > docs-files-to-lint.txt
+          echo "" > ResumeDocs.txt # Inicializa ResumeDocs.txt como un archivo vacío
+          while IFS= read -r file; do
+            echo "Linting $file"
+            markdownlint-cli2 "$file" --config .markdownlint.json >> ResumeDocs.txt 2>&1 || true
+          done < docs-files-to-lint.txt
+          echo "Linting completed for docs. Results saved to ResumeDocs.txt"
+          cat ResumeDocs.txt
+
+      - name: Lint Markdown for all Templates
+        run: |
+          echo "Starting markdown linting process for templates..."
+          find ./templates -name '*.md' > templates-files-to-lint.txt
+          echo "" > ResumeTemplates.txt # Inicializa ResumeTemplates.txt como un archivo vacío
+          echo "Starting markdown linting process...."
+          find . \( -path './docs/*.md' -o -path './docs/**/*.md' -o -path './templates/*.md' -o -path './templates/**/*.md' -o -name '*.md' \) -not -path './node_modules/*' -not -path './bin/*' > files-to-lint.txt
+          cat files-to-lint.txt
+          echo "" > Resume.txt # Inicializa Resume.txt como un archivo vacío
+          while IFS= read -r file; do
+            echo "Linting $file"
+            markdownlint-cli2 "$file" --config ./bin/markdownlint.json >> ResumeTemplates.txt 2>&1 || true
+          done < templates-files-to-lint.txt
+          echo "Linting completed for templates. Results saved to ResumeTemplates.txt"
+          cat ResumeTemplates.txt
+
+      - name: Lint Markdown Team ${{ env.CLEAN_BRANCH_NAME }}
+        run: |
+          echo "Starting markdown linting process for team ${{ env.CLEAN_BRANCH_NAME }}..."
+          resume_file="Resume${{ env.CLEAN_BRANCH_NAME }}.txt"
+          echo "" > "$resume_file" # Inicializa el archivo de resumen como vacío
+          find "./docs/${{ env.CLEAN_BRANCH_NAME }}" -name '*.md' > team-files-to-lint.txt
+          if [ -s team-files-to-lint.txt ]; then
+            while IFS= read -r file; do
+              echo "Linting $file"
+              markdownlint-cli2 "$file" --config ./bin/markdownlint.json >> "$resume_file" 2>&1 || true
+            done < team-files-to-lint.txt
+            echo "Linting completed for ${{ env.CLEAN_BRANCH_NAME }}. Results saved to $resume_file"
+            cat "$resume_file"
+          else
+            echo "No markdown files found for team ${{ env.CLEAN_BRANCH_NAME }}"
+            rm "$resume_file" # Elimina el archivo de resumen vacío
+          fi
+
+      - name: Archive Linting Results all Docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-lint-results-docs
+          path: ResumeDocs.txt
+
+      - name: Archive Linting Results All Templates
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-lint-results-templates
+          path: ResumeTemplates.txt
+
+      - name: Archive Team ${{ env.CLEAN_BRANCH_NAME }} Linting Results
+        uses: actions/upload-artifact@v4
+        with:
+            name: markdown-lint-results-team-${{ env.CLEAN_BRANCH_NAME }}
+            path: Resume${{ env.CLEAN_BRANCH_NAME }}.txt
+
+      - name: Check for Linting Errors in Docs ${{ env.CLEAN_BRANCH_NAME }}
+        run: |
+            echo "Checking for linting errors in team summary..."
+            resume_file="Resume${{ env.CLEAN_BRANCH_NAME }}.txt"
+            if [ -f "$resume_file" ] && grep -q "MD" "$resume_file"; then
+              echo "Errors found in $resume_file"
+              exit 1
+            else
+              echo "No linting errors found in team summary."
+            fi
