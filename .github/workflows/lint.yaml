@@ -1,4 +1,4 @@
-name: Markdown Linting Action
+name: Lint
 
 on:
   push:
@@ -119,3 +119,10 @@ jobs:
             else
               echo "No linting errors found in team summary."
             fi
+
+      - name: Trigger Audit
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Audit
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
