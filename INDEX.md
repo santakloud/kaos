@@ -6,3 +6,4 @@
 - **Version**: v0.1.0 - **Description**: New: añadimos la funcionalidad de generar esquemas
 - **Version**: v0.1.1 - **Description**: Fix: corregemos el indexado a añadimos la funcionalidad de generar esquemas
 - **Version**: v0.1.1 - **Description**: Merge branch 'feature' of https://github.com/santakloud/kaos into feature
+- **Version**: v0.2.0 - **Description**: New: cambiamos la versionde generar esquemas
