@@ -1,4 +1,4 @@
-name: Generar Esquema
+name: Schema
 
 on:
     workflow_dispatch:
