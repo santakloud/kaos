@@ -6,6 +6,10 @@ on:
       - 'feature/**'
       - 'feature'
 
+permissions:
+  contents: read
+  actions: write
+
 jobs:
   markdownLint:
     runs-on: ubuntu-latest
