@@ -1,16 +1,5 @@
 # Manual Técnico
 
-```Shell
-  METADATA
-    "file": "technicalguide.md",
-    "team": "Automation Community Operation",
-    "author": "Yolanda Becerro Navarrete",
-    "date": "2024/07/01",
-    "purpose": "Manual Técnico del producto",
-    "repository": "<https://bitbucket.org/mapfre-is-tec/p21-documentation/>",
-    "version": 1.0
-```
-
 ## Introducción
 
 Breve descripción del programa, su propósito y su público objetivo.

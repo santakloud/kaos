@@ -1,16 +1,5 @@
 # Manual de Usuario
 
-```Shell
-  METADATA
-    "file": "userguide.md",
-    "team": "Automation Community Operation",
-    "author": "Yolanda Becerro Navarrete",
-    "date": "2024/07/01",
-    "purpose": "Manual de usuario",
-    "repository": "<https://bitbucket.org/mapfre-is-tec/p21-documentation/>",
-    "version": 1.0
-```
-
 ## Introducción
 
 Breve descripción del programa y su propósito.

@@ -1,16 +1,5 @@
 # Pruebas de Resiliencia Operativa
 
-```Shell
-  METADATA
-    "file": "proofresilent.md",
-    "team": "Automation Community Operation",
-    "author": "Yolanda Becerro Navarrete",
-    "date": "2024/07/01",
-    "purpose": "Cómo documentar un plan de resilencia de ejemplo",
-    "repository": "<https://bitbucket.org/mapfre-is-tec/p21-documentation/>",
-    "version": 1.0
-```
-
 ## Introducción
 
 Este documento describe el plan y los procedimientos para llevar a cabo pruebas de resiliencia operativa en [Nombre de la Empresa]. El objetivo es garantizar la capacidad de la organización para resistir y recuperarse de incidentes que afecten a las tecnologías de la información y la comunicación (TIC).
