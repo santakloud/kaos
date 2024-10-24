@@ -36,3 +36,12 @@
 - **Files Changed**:
   - version.txt
 ---------------------------------
+## Version 0.0.2
+- **Branch**: refs/heads/main
+- **Commit**: 5475d7d3e7b7df44e19027d1b1adb45a3f80ebe1
+- **Author**: SantaKloud (73332898+santakloud@users.noreply.github.com)
+- **Date**: Thu Oct 24 11:16:31 UTC 2024
+- **Message**: Merge pull request #10 from santakloud/feature
+- **Files Changed**:
+  - README.md
+---------------------------------
