@@ -179,3 +179,13 @@
   - README.md
   - version.txt
 ---------------------------------
+## Version 0.2.4
+- **Branch**: refs/heads/feature
+- **Commit**: 90c48a82c1b19e27448631ab726902398c45bf49
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 16:21:59 UTC 2024
+- **Message**: Error: confusion con el token
+- **Files Changed**:
+  - .github/workflows/schema.yaml
+  - version.txt
+---------------------------------
