@@ -35,3 +35,12 @@
 - **Message**: Fix: version.txt
 - **Files Changed**:
   - version.txt
+## Version 0.0.1
+- **Branch**: refs/heads/feature
+- **Commit**: c86eb5af07257020f8dd753f1377b0d74e0554a8
+- **Author**: SantaKloud (73332898+santakloud@users.noreply.github.com)
+- **Date**: Thu Oct 24 11:32:09 UTC 2024
+- **Message**: Merge pull request #13 from santakloud/main
+- **Files Changed**:
+  - CHANGELOG.md
+---------------------------------
