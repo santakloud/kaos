@@ -169,3 +169,13 @@
 - **Files Changed**:
   - CHANGELOG.md
 ---------------------------------
+## Version 0.2.3
+- **Branch**: refs/heads/feature
+- **Commit**: cf6f407b636fdae062aaba23d1aaf02832bd48db
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 16:17:54 UTC 2024
+- **Message**: Fix: cambiamos version de schema
+- **Files Changed**:
+  - README.md
+  - version.txt
+---------------------------------
