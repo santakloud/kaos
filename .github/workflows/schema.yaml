@@ -9,24 +9,21 @@ jobs:
   generador-esquema:
     runs-on: ubuntu-latest
     steps:
-      - name: Agregar dependencias
-        uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NODE_ENV: production
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm install
 
       - name: Instalar jsonschema
-        run: npm install json
+        run: npm install -g jsonschema
 
       - name: Leer templates y generar esquemas
-        run: |
-          npm run generate-schemas
-        # Define la tarea para generar los esquemas
-        scripts:
-          generate-schemas: 
-            template: |
-              for file in $(find /templates/*.md); do
-                filename=$(basename "$file" | sed 's/.template$//')
-                echo "Generando esquema de $filename"
-                jsonschema generate --template "$file" -o ./schema/schema-master-$file-v0.0.0.json
+        run: node ./bin/generate-schemas.js
