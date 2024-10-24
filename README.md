@@ -9,6 +9,7 @@ Para realizar esta prueba es tan sencillo como modificar el fichero de ./README.
 ```Shell
     git pull
     # añade o modifica tus ficheros
+    # o los cambios que estimes oportunos
     git add nombre_del_fichero/s
     git commit -m "Clave: Añade tu comentario"
     git push
