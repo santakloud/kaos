@@ -11,3 +11,13 @@ Documentación funcional con los flujos de trabajo o de transformación de datos
 ## Configuracion Redes
 
 Documentación funcional con la configuración de las diferentes redes y su enrrutados.
+
+## Información de Contacto
+
+Detalles de cómo ponerse en contacto con el soporte técnico o el servicio al cliente para obtener ayuda adicional.
+
+- Nombre de Producto
+- Product Owner
+- Contactos
+- Contacto herramientas de terceros
+- Escalado

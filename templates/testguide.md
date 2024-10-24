@@ -50,3 +50,13 @@ Una descripción detallada del defecto, incluyendo los pasos para reproducirlo.
 
 - Estado del Defecto
 El estado actual del defecto (por ejemplo, “Nuevo”, “En Progreso”, “Resuelto”, etc.).
+
+## Información de Contacto
+
+Detalles de cómo ponerse en contacto con el soporte técnico o el servicio al cliente para obtener ayuda adicional.
+
+- Nombre de Producto
+- Product Owner
+- Contactos
+- Contacto herramientas de terceros
+- Escalado

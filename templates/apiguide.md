@@ -10,8 +10,6 @@ Descripción detallada de la API, incluyendo los endpoints disponibles, los mét
 
 - Endpoint A
 Descripción y uso del Endpoint A.
-[BitBucket](https://bitbucket.or/mapfre-is-tec/p21-documentation/)
-[POSEIDON](https://zeus.mapfre.com/poseidon/logout)
 
 - Endpoint B
 Descripción y uso del Endpoint B.
@@ -32,7 +30,7 @@ Descripción de cómo se realizan las operaciones CRUD en la base de datos.
 
 ## Solución de Problemas
 
-Información sobre cómo resolver problemas comunes relacionados con la API y la base de datos.#
+Información sobre cómo resolver problemas comunes relacionados con la API y la base de datos.
 
 ## Información de Contacto
 
