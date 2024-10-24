@@ -63,7 +63,7 @@ jobs:
         uses: actions/add-file@v4
         with:
           file-path: 'CHANGELOG.md'
-          directory: '/path/to/CHANGELOG.md'
+          directory: './'
 
       - name: Limpiar directorios temporales
         run: |
