@@ -20,12 +20,11 @@ jobs:
       - name: Leer templates y generar esquemas
         run: |
           npm run generate-schemas
-
-# Define la tarea para generar los esquemas
-scripts:
-  generate-schemas: 
-    template: |
-      for file in $(find /templates/*.md); do
-        filename=$(basename "$file" | sed 's/.template$//')
-        echo "Generando esquema de $filename"
-        jsonschema generate --template "$file" -o ./schema/schema-master-$file-v0.0.0.json
+        # Define la tarea para generar los esquemas
+        scripts:
+          generate-schemas: 
+            template: |
+              for file in $(find /templates/*.md); do
+                filename=$(basename "$file" | sed 's/.template$//')
+                echo "Generando esquema de $filename"
+                jsonschema generate --template "$file" -o ./schema/schema-master-$file-v0.0.0.json

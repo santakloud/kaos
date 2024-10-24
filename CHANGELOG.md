@@ -80,3 +80,13 @@
   - .github/workflows/schema.yaml
   - version.txt
 ---------------------------------
+## Version 0.1.1
+- **Branch**: refs/heads/feature
+- **Commit**: b79c1befe2741d53532e150a2fa82ffc96bad029
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 12:12:58 UTC 2024
+- **Message**: Fix: corregemos el indexado a añadimos la funcionalidad de generar esquemas
+- **Files Changed**:
+  - .github/workflows/schema.yaml
+  - version.txt
+---------------------------------
