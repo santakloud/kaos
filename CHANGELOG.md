@@ -47,3 +47,13 @@
   - INDEX.md
   - version.txt
 ---------------------------------
+## Version 0.0.1
+- **Branch**: refs/heads/feature
+- **Commit**: 183ff58c5732937f8b84751b28e27e8ad2bda2fd
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 11:27:12 UTC 2024
+- **Message**: Fix: corregimos la version inicial de version y readme
+- **Files Changed**:
+  - README.md
+  - version.txt
+---------------------------------
