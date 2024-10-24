@@ -110,3 +110,14 @@
 - **Files Changed**:
   - CHANGELOG.md
 ---------------------------------
+## Version 0.2.0
+- **Branch**: refs/heads/feature
+- **Commit**: aa9aedcd9484ca035c19dedbd8a0be2613f92166
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 13:13:46 UTC 2024
+- **Message**: New: cambiamos la versionde generar esquemas
+- **Files Changed**:
+  - .github/workflows/schema.yaml
+  - bin/generate-schemas.js
+  - version.txt
+---------------------------------
