@@ -36,3 +36,14 @@
 - **Files Changed**:
   - version.txt
 ---------------------------------
+## Version 0.0.2
+- **Branch**: refs/heads/feature
+- **Commit**: be710b159352c485c9888dab2a63cb3313f24007
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 11:22:50 UTC 2024
+- **Message**: Merge branch 'feature' of https://github.com/santakloud/kaos into feature
+- **Files Changed**:
+  - CHANGELOG.md
+  - INDEX.md
+  - version.txt
+---------------------------------
