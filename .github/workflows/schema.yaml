@@ -1,9 +1,12 @@
 name: Schema
 
 on:
-    workflow_dispatch:
-        branches:
-            - feature
+  workflow_dispatch:
+    branches:
+      - feature
+  push:
+    branches:
+      - main
 
 jobs:
   generador-esquema:
@@ -12,18 +15,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PACKAGE_TOKEN }} # Cambia a PACKAGE_TOKEN
+        id: checkout_output
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Instalar jsonschema
-        run: npm install -g jsonschema
+      - name: Instalar dependencias y jsonschema
+        run: npm install && npm install -g jsonschema
 
       - name: Leer templates y generar esquemas
-        run: node ./bin/generate-schemas.js
+        run: |
+          node ./bin/generate-schemas.js
+          # Si deseas agregar algún comando adicional después de ejecutar el script, puedes agregarlo aquí.

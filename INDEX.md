@@ -9,3 +9,4 @@
 - **Version**: v0.2.0 - **Description**: New: cambiamos la versionde generar esquemas
 - **Version**: v0.2.1 - **Description**: Fix: errores en la ejecucion
 - **Version**: v0.2.2 - **Description**: Fix: añadimos resultados de las pruebas
+- **Version**: v0.2.3 - **Description**: Fix: cambiamos version de schema

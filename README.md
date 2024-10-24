@@ -16,4 +16,5 @@ Para realizar esta prueba es tan sencillo como modificar el fichero de ./README.
     git push
 ```
 
-De momento el resultado de las pruebas es satisfactorio. Funciona el proceso del lint y audit. Queda por integrar schema.
+De momento el resultado de las pruebas es satisfactorio.
+Funciona el proceso del lint y audit. Queda por integrar schema.
