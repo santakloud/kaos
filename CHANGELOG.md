@@ -131,3 +131,11 @@
   - bin/generate-schemas.js
   - version.txt
 ---------------------------------
+## Version 0.2.1
+- **Branch**: refs/heads/feature
+- **Commit**: 5e43c3d0d7e05a49fc7d75175ed8fe9090817a0c
+- **Author**: SantaKloud (73332898+santakloud@users.noreply.github.com)
+- **Date**: Thu Oct 24 15:43:05 UTC 2024
+- **Message**: Merge pull request #16 from santakloud/main
+- **Files Changed**:
+---------------------------------
