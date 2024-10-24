@@ -44,3 +44,29 @@
 - **Files Changed**:
   - CHANGELOG.md
 ---------------------------------
+## Version 0.0.2
+- **Branch**: refs/heads/feature
+- **Commit**: a4f2c337a620108589f9a4c47790efa58ae4e826
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 11:34:47 UTC 2024
+- **Message**: Fix: corregimos la version inicial de version y readme
+- **Files Changed**:
+  - README.md
+  - version.txt
+---------------------------------
+## Version 0.0.2
+- **Branch**: refs/heads/feature
+- **Commit**: 0b1fd50e8a19f322509a185964e120cb584e2057
+- **Author**: SantaKloud (73332898+santakloud@users.noreply.github.com)
+- **Date**: Thu Oct 24 11:36:16 UTC 2024
+- **Message**: Fix: version.txt
+- **Files Changed**:
+---------------------------------
+## Version 0.0.2
+- **Branch**: refs/heads/feature
+- **Commit**: d47042c4b7e8c056d18c447c1e2d62387d9e0a4c
+- **Author**: SantaKloud (73332898+santakloud@users.noreply.github.com)
+- **Date**: Thu Oct 24 11:39:17 UTC 2024
+- **Message**: Error: version.txt
+- **Files Changed**:
+---------------------------------
