@@ -160,3 +160,12 @@
   - INDEX.md
   - version.txt
 ---------------------------------
+## Version 0.2.2
+- **Branch**: refs/heads/feature
+- **Commit**: 9597a4cb33182e2fea0823ad51ebfc87e54b4a96
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 16:15:34 UTC 2024
+- **Message**: Merge branch 'feature' of https://github.com/santakloud/kaos into feature
+- **Files Changed**:
+  - CHANGELOG.md
+---------------------------------
