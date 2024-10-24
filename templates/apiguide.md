@@ -30,7 +30,7 @@ Descripción de cómo se realizan las operaciones CRUD en la base de datos.
 
 ## Solución de Problemas
 
-Información sobre cómo resolver problemas comunes relacionados con la API y la base de datos.#
+Información sobre cómo resolver problemas comunes relacionados con la API y la base de datos.
 
 ## Información de Contacto
 
