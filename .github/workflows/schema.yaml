@@ -28,5 +28,5 @@ jobs:
 
       - name: Leer templates y generar esquemas
         run: |
-          node ./bin/generate-schemas.js
+          node generate-schemas.js
           # Si deseas agregar algún comando adicional después de ejecutar el script, puedes agregarlo aquí.
