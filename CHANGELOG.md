@@ -70,3 +70,13 @@
 - **Message**: Error: version.txt
 - **Files Changed**:
 ---------------------------------
+## Version 0.1.0
+- **Branch**: refs/heads/feature
+- **Commit**: 761c997c3b4d3f8eb1d2467cd0765044e67de028
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 12:09:32 UTC 2024
+- **Message**: New: añadimos la funcionalidad de generar esquemas
+- **Files Changed**:
+  - .github/workflows/schema.yaml
+  - version.txt
+---------------------------------
