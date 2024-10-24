@@ -1,16 +1,5 @@
 # Documentación de Pruebas
 
-```Shell
-  METADATA
-    "file": "testguide.md",
-    "team": "Automation Community Operation",
-    "author": "Yolanda Becerro Navarrete",
-    "date": "2024/07/01",
-    "purpose": "Documentación de las pruebas realizadas",
-    "repository": "<https://bitbucket.org/mapfre-is-tec/p21-documentation/>",
-    "version": 1.0
-```
-
 ## Introducción
 
 Breve descripción de la importancia de las pruebas en el ciclo de vida del desarrollo del software.

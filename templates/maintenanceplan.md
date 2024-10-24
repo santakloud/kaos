@@ -1,16 +1,5 @@
 # Plan de Mantenimiento
 
-```Shell
-  METADATA
-    "file": "maintenanceplan.md",
-    "team": "Automation Community Operation",
-    "author": "Yolanda Becerro Navarrete",
-    "date": "2024/07/01",
-    "purpose": "Plan de mantenimiento del producto",
-    "repository": "<https://bitbucket.org/mapfre-is-tec/p21-documentation/>",
-    "version": 1.0
-```
-
 ## Introducción
 
 Breve descripción de la importancia del mantenimiento en el ciclo de vida del desarrollo del software.
@@ -25,6 +14,9 @@ Descripción detallada de los procedimientos que se seguirán para cada tipo de 
 
 - Procedimiento para el Mantenimiento Correctivo
 Descripción y pasos del procedimiento para el mantenimiento correctivo.
+
+- Procedimiento para el Mantenimiento Preventivo
+Descripción y pasos del procedimiento para el mantenimiento preventivo.
 
 - Procedimiento para el Mantenimiento Preventivo
 Descripción y pasos del procedimiento para el mantenimiento preventivo.

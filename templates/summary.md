@@ -1,16 +1,5 @@
 # API y Uso de la Base de Datos
 
-```Shell
-  METADATA
-    "file": "apiguide.md",
-    "team": "Automation Community Operation",
-    "author": "Yolanda Becerro Navarrete",
-    "date": "2024/07/01",
-    "purpose": "Manual de uso de la API",
-    "repository": "<https://bitbucket.org/mapfre-is-tec/p21-documentation/>",
-    "version": 1.0
-```
-
 ## Introducción
 
 Breve descripción de la API y cómo se utiliza en el programa.
