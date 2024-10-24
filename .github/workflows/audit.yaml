@@ -97,11 +97,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Merge develop to main
+    - name: Merge feature to main
       if: success()
       run: |
         git checkout main
-        git merge develop
+        git merge feature
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
