@@ -1,21 +1,27 @@
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFile } = require('child_process');
 
-const templatesDir = path.join(__dirname, 'templates');
-const outputDir = path.join(__dirname, 'schemas');
+const templateRoot = path.join(__dirname, 'src/templates');
+const outputRoot = path.join(__dirname, 'src/schemas');
 
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir);
+if (!fs.existsSync(outputRoot)) {
+  fs.mkdirSync(outputRoot);
 }
 
-fs.readdirSync(templatesDir).forEach(file => {
-  if (file.endsWith('.template')) {
-    const filename = path.basename(file, '.template');
-    const templatePath = path.join(templatesDir, file);
-    const outputPath = path.join(outputDir, `${filename}-schema.json`);
+fs.readdir(templateRoot).forEach((file) => {
+  if (file.endsWith('.md')) {
+    const filename = file;
+    const templatePath = path.join(templateRoot, file);
+    const outputPath = path.join(outputRoot, `${filename}-schema-masterv0.0.0.json`);
 
     console.log(`Generando esquema de ${filename}`);
-    execSync(`jsonschema generate --template "${templatePath}" -o "${outputPath}"`);
+    execFile('jsonschema', ['generate', '--template', templatePath, '-o', outputPath], (error) => {
+      if (error) {
+        console.error(error);
+        return;
+      }
+      console.log(`Esquema generado con éxito en ${outputPath}`);
+    });
   }
 });
