@@ -121,3 +121,13 @@
   - bin/generate-schemas.js
   - version.txt
 ---------------------------------
+## Version 0.2.1
+- **Branch**: refs/heads/feature
+- **Commit**: b9b1b143ebaef60527021b70ecf9f9a39f936295
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 15:36:45 UTC 2024
+- **Message**: Fix: errores en la ejecucion
+- **Files Changed**:
+  - bin/generate-schemas.js
+  - version.txt
+---------------------------------
