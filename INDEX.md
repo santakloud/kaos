@@ -11,3 +11,4 @@
 - **Version**: v0.2.2 - **Description**: Fix: añadimos resultados de las pruebas
 - **Version**: v0.2.3 - **Description**: Fix: cambiamos version de schema
 - **Version**: v0.2.4 - **Description**: Error: confusion con el token
+- **Version**: v0.2.5 - **Description**: Error: corregimos las rutas en el fichero js

@@ -189,3 +189,14 @@
   - .github/workflows/schema.yaml
   - version.txt
 ---------------------------------
+## Version 0.2.5
+- **Branch**: refs/heads/feature
+- **Commit**: df2eb068513a68e06c913164615d2442049d2554
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 16:30:23 UTC 2024
+- **Message**: Error: corregimos las rutas en el fichero js
+- **Files Changed**:
+  - bin/generate-schemas.js
+  - schema/schema-master0.0.0.json
+  - version.txt
+---------------------------------
