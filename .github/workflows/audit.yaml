@@ -3,61 +3,105 @@ name: Audit
 on:
   workflow_dispatch:
 
-jobs:
-  anotar-cambios:
+permissions:
+  contents: write
 
+jobs:
+  log-version:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Clonar todo el historial de commits
 
-      - name: Configurar variables de entorno
-        id: config-variables
-        run: |
-          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
-          echo "branch=${GITHUB_BRANCH}" >> $GITHUB_ENV
-          echo "commitHash=${{ github.sha }}" >> $GITHUB_ENV
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
 
-      - name: Obtener detalles del commit
-        run: |
-          COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an' ${{ github.sha }})
-          COMMIT_DATE=$(git log -1 --pretty=format:'%ad' --date=short ${{ github.sha }})
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s' ${{ github.sha }})
-          COMMIT_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
-          echo "Commit author: $COMMIT_AUTHOR"
-          echo "Commit date: $COMMIT_DATE"
-          echo "Commit message: $COMMIT_MESSAGE"
-          echo "Commit files: $COMMIT_FILES"
-          echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
-          echo "COMMIT_DATE=$COMMIT_DATE" >> $GITHUB_ENV
-          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
-          echo "COMMIT_FILES=$COMMIT_FILES" >> $GITHUB_ENV
+    - name: Extract commit details
+      id: commit_details
+      run: |
+        echo "AUTHOR_NAME=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
+        echo "AUTHOR_EMAIL=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
+        echo "COMMIT_MESSAGE=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
 
-      - name: Agregar detalles de commit a CHANGELOG.md
-        run: |
-          echo "## Commit ${GITHUB_BRANCH} - ${commitHash}" >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
-          echo "* **Autor:** ${{ env.COMMIT_AUTHOR }}" >> CHANGELOG.md
-          echo "* **Fecha:** ${{ env.COMMIT_DATE }}" >> CHANGELOG.md
-          echo "* **Comentario del autor:** ${{ env.COMMIT_MESSAGE }}" >> CHANGELOG.md
-          echo "* **Archivos modificados:**" >> CHANGELOG.md
-          echo "${{ env.COMMIT_FILES }}" | sed 's/^/  - /' >> CHANGELOG.md
+    - name: Increment version
+      run: |
+        if [ ! -f version.txt ]; then echo "0.0.0" > version.txt; fi
+        VERSION=$(cat version.txt)
+        cat version.txt
+        IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+        if [[ "${{ env.COMMIT_MESSAGE }}" =~ (Del: |Fix: |Error: ) ]]; then
+          PATCH=$((PATCH + 1))
+        elif [[ "${{ env.COMMIT_MESSAGE }}" =~ (Add: |New: |Upload: ) ]]; then
+          MINOR=$((MINOR + 1))
+          PATCH=0
+        elif [[ "${{ env.COMMIT_MESSAGE }}" =~ (Build: ) ]]; then
+          MAJOR=$((MAJOR + 1))
+          MINOR=0
+          PATCH=0
+        fi
+        
+        NEW_VERSION="$MAJOR.$MINOR.$PATCH"
+        echo $NEW_VERSION > version.txt
+        cat version.txt
+        echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
-      - name: Crear nueva rama y hacer commit
-        run: |
-          git checkout -b feature
-          git add CHANGELOG.md
-          git commit -m "Actualizar CHANGELOG.md con detalles del commit ${commitHash}"
+    - name: Get changed files
+      id: changed_files
+      run: |
+        CHANGED_FILES=$(git diff --name-only HEAD~1 | tr '\n' ' ')
+        echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
 
-      - name: Empujar cambios a la rama feature
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin feature
+    - name: Create log entry
+      run: |
+        echo "## Version ${{ env.VERSION }}" >> CHANGELOG.md
+        echo "- **Branch**: ${{ github.ref }}" >> CHANGELOG.md
+        echo "- **Commit**: ${{ github.sha }}" >> CHANGELOG.md
+        echo "- **Author**: ${{ env.AUTHOR_NAME }} (${{ env.AUTHOR_EMAIL }})" >> CHANGELOG.md
+        echo "- **Date**: $(date -u)" >> CHANGELOG.md
+        echo "- **Message**: ${{ env.COMMIT_MESSAGE }}" >> CHANGELOG.md
+        echo "- **Files Changed**:" >> CHANGELOG.md
+        for file in ${{ env.CHANGED_FILES }}; do echo "  - $file" >> CHANGELOG.md; done
+        echo "---------------------------------" >> CHANGELOG.md
 
-      - name: Limpiar directorios temporales
-        run: |
-          rm -rf node_modules/ && rm -rf bin/*
+    - name: Commit and push log
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add CHANGELOG.md version.txt
+        git commit -m "Update CHANGELOG.md with new version log entry"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Create and push tag
+      run: |
+        git tag -a "v${{ env.VERSION }}" -m "Release version ${{ env.VERSION }}"
+        git push origin "v${{ env.VERSION }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Update INDEX.md with new tag
+      run: |
+        if [ ! -f INDEX.md ]; then echo "# Version Index" > INDEX.md; fi
+        echo "- **Version**: v${{ env.VERSION }} - **Description**: ${{ env.COMMIT_MESSAGE }}" >> INDEX.md
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add INDEX.md
+        git commit -m "Update INDEX.md with version ${{ env.VERSION }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Merge develop to main
+      if: success()
+      run: |
+        git checkout main
+        git merge develop
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
