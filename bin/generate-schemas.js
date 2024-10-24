@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { execFile } = require('child_process');
 
-const templateRoot = path.join(__dirname, 'src/templates');
-const outputRoot = path.join(__dirname, 'src/schemas');
+const templateRoot = path.join(__dirname, './templates');
+const outputRoot = path.join(__dirname, './schemas');
 
 if (!fs.existsSync(outputRoot)) {
   fs.mkdirSync(outputRoot);
