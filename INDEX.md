@@ -12,3 +12,4 @@
 - **Version**: v0.2.3 - **Description**: Fix: cambiamos version de schema
 - **Version**: v0.2.4 - **Description**: Error: confusion con el token
 - **Version**: v0.2.5 - **Description**: Error: corregimos las rutas en el fichero js
+- **Version**: v0.2.6 - **Description**: Fix: reubicamos el js

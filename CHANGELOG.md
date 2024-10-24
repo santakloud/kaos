@@ -200,3 +200,13 @@
   - schema/schema-master0.0.0.json
   - version.txt
 ---------------------------------
+## Version 0.2.6
+- **Branch**: refs/heads/feature
+- **Commit**: ecfb283de340b041660463a64ad588504afcf1cb
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 16:34:46 UTC 2024
+- **Message**: Fix: reubicamos el js
+- **Files Changed**:
+  - generate-schemas.js
+  - version.txt
+---------------------------------
