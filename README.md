@@ -15,3 +15,5 @@ Para realizar esta prueba es tan sencillo como modificar el fichero de ./README.
     git commit -m "Clave: Añade tu comentario"
     git push
 ```
+
+De momento el resultado de las pruebas es satisfactorio. Funciona el proceso del lint y audit. Queda por integrar schema.
