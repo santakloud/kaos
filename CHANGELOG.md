@@ -44,3 +44,13 @@
 - **Files Changed**:
   - CHANGELOG.md
 ---------------------------------
+## Version 0.0.2
+- **Branch**: refs/heads/feature
+- **Commit**: a4f2c337a620108589f9a4c47790efa58ae4e826
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 11:34:47 UTC 2024
+- **Message**: Fix: corregimos la version inicial de version y readme
+- **Files Changed**:
+  - README.md
+  - version.txt
+---------------------------------
