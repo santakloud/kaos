@@ -90,3 +90,14 @@
   - .github/workflows/schema.yaml
   - version.txt
 ---------------------------------
+## Version 0.1.1
+- **Branch**: refs/heads/feature
+- **Commit**: 9c55a0797feea130565503a930fce304d177e168
+- **Author**: santacana.canton (santacana.canton@icloud.com)
+- **Date**: Thu Oct 24 12:14:12 UTC 2024
+- **Message**: Merge branch 'feature' of https://github.com/santakloud/kaos into feature
+- **Files Changed**:
+  - CHANGELOG.md
+  - INDEX.md
+  - version.txt
+---------------------------------
