@@ -18,6 +18,9 @@ Descripción y pasos del procedimiento para el mantenimiento correctivo.
 - Procedimiento para el Mantenimiento Preventivo
 Descripción y pasos del procedimiento para el mantenimiento preventivo.
 
+- Procedimiento para el Mantenimiento Preventivo
+Descripción y pasos del procedimiento para el mantenimiento preventivo.
+
 ## Programación de Mantenimiento
 
 Un calendario de cuándo se realizarán las tareas de mantenimiento.
