@@ -10,8 +10,6 @@ Descripción detallada de la API, incluyendo los endpoints disponibles, los mét
 
 - Endpoint A
 Descripción y uso del Endpoint A.
-[BitBucket](https://bitbucket.or/mapfre-is-tec/p21-documentation/)
-[POSEIDON](https://zeus.mapfre.com/poseidon/logout)
 
 - Endpoint B
 Descripción y uso del Endpoint B.
